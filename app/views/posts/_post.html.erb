@@ -1,0 +1,19 @@
+<%= link_to post_path(post), style: "text-decoration: none;" do %>
+  <div class="card" style="text-decoration: none;">
+    <span class="tag is-primary is-light">
+      <%= post.category %>
+    </span>
+    <div class="card-content">
+      <p class="subtitled">
+        <span id=""><%= post.title %></span>
+      </p>
+      <p class="content">
+        <%= truncate(post.content, length: 150) %>
+      </p>
+      <br>
+      <div class="field is-grouped is-grouped-right">
+        <a href="#"><span class="tag is-warning is-light"><%= time_ago_in_words(post.created_at) %> ago</span></a>
+      </div>
+    </div>
+  </div>
+<% end %>

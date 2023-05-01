@@ -1,0 +1,64 @@
+<nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+        <%= link_to "< Back", "/posts", class: "button" %>
+        <%#= link_to "< Back", "/search?word=#{@fragment.word.content}&language=#{@fragment.word.language}&category=#{@fragment.category}", class: "button" %>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <span class="tag is-primary is-light">
+        <%= @post.category %>
+      </span>
+    </div>
+</nav>
+
+<section class="hero is-white is-halfheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <p class="title titled"><%= @post.title %></p>
+      <br>
+      <% if @post.subtitle %>
+        <p class="subtitle is-italic"><%= @post.subtitle %></p>
+      <% end %>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="content">
+      <%= simple_format(@post.content.html_safe) %>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-white is-halfheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <nav class="columns">
+          <div class="column is-1">
+              <span class="tag is-warning is-light">
+                <%= @post.created_at %>
+              </span>
+          </div>
+          <div class="column">
+            <div>
+            </div>
+          </div>
+          <div class="column">
+            <div>
+            </div>
+          </div>
+          <div class="column">
+          </div>
+      </nav>
+    </div>
+  </div>
+</section>

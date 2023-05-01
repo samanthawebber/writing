@@ -1,0 +1,304 @@
+<style media="screen">
+  $primary-color: #009688;
+
+  .landing-container {
+    padding: 50px;
+    .search-box {
+      height: 50px;
+      padding: 10px;
+    }
+  }
+
+  .search-block, .price-block, .extras-block {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin-top: -10px;
+    border-right: 2px solid rgba(10,10,10,.1);
+    background: #fff;
+    transition: all 0.3s ease;
+    &.focus {
+      box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .price-block {
+    .button {
+      display: flex;
+      align-items: center;
+      outline: none;
+      border: 1px solid #b1b1b1;
+      text-align: left;
+      width: 100%;
+      height: 100%;
+      font-size: 1em;
+      margin-right: 4px;
+      color: #4c4c4c;
+      padding: 0 .825em;
+      z-index: 0;
+      border-radius: 0px;
+      border: 0px;
+      span {
+        position: absolute;
+        top: 40px;
+        left: 10px;
+        padding-bottom:5px;
+        font-size: 1.5em;
+        background: none;
+        color: #a9a9a9;
+        width: 90%;
+        height: 30px;
+        border: none;
+        appearance: none;
+        outline: none;
+      }
+    }
+    .dropdown-container {
+      padding-bottom: 0;
+      width: 100%;
+      border-radius: 0;
+      border-top: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 10;
+      font-size: 1.2em;
+      padding: 0;
+      background-color: #fff;
+      box-shadow: rgba(0,0,0,.172549) 0 6px 12px 0;
+      visibility: hidden;
+      &.is-open{
+        visibility: visible;
+      }
+      .dropdown {
+        display: inline-block;
+        margin: 0;
+        border-top: 1px solid #cccccc;
+        width: 100%;
+        .range-container {
+          height: 10px;
+          margin: 20px 0 10px;
+          border-bottom: 1px solid #ccc;
+          .left-input{
+            position: relative;
+            padding-left: 15px;
+            padding-right: 15px;
+            float: left;
+            width: 50%;
+            z-index: 11;
+            input {
+              width: 100%;
+              max-width: 100% !important;
+              line-height: 6px;
+              height: 10px;
+              padding-left: 6px;
+              background-color: #fff;
+              text-align: left;
+              border: solid 1px #ccc;
+              outline-width: 1px;
+              outline-color: #009688;
+            }
+          }
+          .right-input{
+            position: relative;
+            padding-left: 15px;
+            padding-right: 15px;
+            float: left;
+            width: 50%;
+            z-index: 11;
+            input {
+              width: 100%;
+              max-width: 100%!important;
+              line-height: 6px;
+              height: 10px;
+              padding-left: 6px;
+              background-color: #fff;
+              text-align: left;
+              border: solid 1px #ccc;
+              outline-width: 1px;
+              outline-color: #009688;
+            }
+          }
+          &:before {
+            content: "-";
+            color: #ccc;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            font-size: 2em;
+            left: 0;
+            z-index: 10;
+          }
+        }
+        .options-container {
+          width: 100%;
+          margin: 0px;
+          padding: 10px 15px;
+          border-bottom: 1px solid #ccc;
+          p{
+            font-weight: bold;
+          }
+        }
+        ul {
+          min-height: 245px;
+          list-style: none;
+          padding-left: 0;
+          margin: 0;
+          background-color: #fff;
+          li {
+            padding-left: 15px;
+            height: 15px;
+            line-height: 15px;
+            cursor: pointer;
+            &:hover {
+              background: rgba(0,0,0,.2)
+            }
+          }
+          &.max-options li {
+            padding-right: 15px;
+            text-align: right;
+          }
+        }
+      }
+    }
+  }
+
+  .search-label, .price-label {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    color: #5a6674;
+    z-index: 999;
+  }
+
+  .search-input {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    padding-bottom:5px;
+    font-size: 1.2em;
+    background: none;
+    color: #5a6674;
+    width: 90%;
+    height: 20px;
+    border: none;
+    appearance: none;
+    outline: none;
+
+    &::-webkit-search-cancel-button {
+      appearance: none;
+    }
+    &:focus {
+      border-bottom: 1px solid $primary-color;
+    }
+  }
+
+  .dropdown-input {
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    padding-bottom: 5px;
+    font-size: 1.2em;
+    background: none;
+    width: 100%;
+    height: 0px;
+    appearance: none;
+    outline: none;
+    border: none;
+  }
+
+  select {
+    color: #A9A9A9 !important;
+    border: 0px white solid;
+    outline: 0px white solid;
+    height: 2.1em !important;
+  }
+
+  .landing-container .search-box {
+    height: 50px;
+    padding: 10px 0 10px 10px;
+    .search-button{
+      width: 100%;
+      height: 50px;
+      margin-top: -10px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+  }
+
+  .search-button{
+    width: 100%;
+    height: 50px;
+    margin-top: -10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+</style>
+
+<section class="hero is-small is-white">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title titled has-text-centered" data-aos="fade-down">writing</h1>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <%= form_with url: search_path, local: true do |form| %>
+        <div class="container landing-container">
+          <div class="columns search-box">
+            <div class="column is-4 is-paddingless">
+              <div class="search-block">
+                <label class="search-label label">
+                  <span>keyword</span>
+                </label>
+                <input class="search-input home-input"  name="keyword" placeholder="type a word" value="<%= @keyword %>">
+              </div>
+            </div>
+
+            <div class="column is-paddingless">
+              <div class="price-block">
+                <label class="price-label label">
+                  <span>tag</span>
+                </label>
+                <div class="field is-large">
+                  <div class="dropdown-input dropdown-container">
+                    <div class="select is-white">
+                      <%= select_tag :category, options_for_select([['all', ''], ['experience', 'experience'], ['memory', 'memory'],
+                      ['glimpse', 'glimpse'], ['narrative', 'narrative'], ['philosophy', 'philosophy'],
+                      ['word-painting', 'word-painting']], @category) %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column is-2 is-paddingless">
+              <%= form.submit "filter", class: "button  is-link is-light search-button" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<br><br>
+
+<div id="posts-table" class="container">
+  <table class="table">
+    <tbody>
+      <% @posts&.each do |post| %>
+      <tr>
+        <%= render 'post', post: post %>
+      </tr>
+      <br>
+      <% end %>
+    </tbody>
+  </table>
+</div>

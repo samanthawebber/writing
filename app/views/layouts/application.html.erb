@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unnamed Observer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+
+  <nav class="navbar">
+    <div class="container">
+      <div id="navMenu" class="navbar-menu">
+        <div class="navbar-start">
+
+        </div>
+
+        <div class="navbar-end">
+          <a class="navbar-item" href="/">
+            Home
+          </a>
+          <a class="navbar-item" href="/posts">
+            Writing
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <% if notice %>
+    <div class="notification is-primary is-light">
+      <button class="delete"></button>
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <% if alert %>
+    <div class="notification is-danger">
+      <button class="delete"></button>
+      <%= alert %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+
+  <footer class="footer" style="background-color: #fff;">
+    <section class="hero is-halfheight">
+      <div class="hero-head">
+      </div>
+      <div class="hero-body">
+      </div>
+      <div class="hero-foot">
+        <div class="container">
+          <div class="columns">
+            <div class="column">
+            </div>
+            <div class="column">
+              <div class="content has-text-centered">
+                <p class="">
+                  &copy; <strong>Samantha Webber</strong> 2023
+                </p>
+              </div>
+            </div>
+            <div class="column">
+              <div class="columns">
+                <div class="column">
+
+                </div>
+                <div class="column">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
