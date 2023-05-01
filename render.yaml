@@ -1,7 +1,7 @@
 databases:
   - name: blog
     databaseName: blog_production
-    user: postgres
+    user: blog
 
 services:
   - type: web
