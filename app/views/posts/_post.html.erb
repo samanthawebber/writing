@@ -3,9 +3,9 @@
     <span class="tag is-primary is-light">
       <%= post.category %>
     </span>
-    <div class="card-content">
+    <div class="card-content has-text-centered-mobile">
       <p class="subtitled">
-        <span id=""><%= post.title %></span>
+        <span><%= post.title %></span>
       </p>
       <p class="content">
         <%= truncate(post.content, length: 150) %>

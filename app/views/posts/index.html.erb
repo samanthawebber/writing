@@ -1,3 +1,89 @@
+<section class="hero is-small is-white">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title titled has-text-centered">writing</h1>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-hidden-touch">
+  <div class="hero-body">
+    <div class="container">
+      <%= form_with url: search_path, local: true do |form| %>
+        <div class="container landing-container">
+          <div class="columns search-box">
+            <div class="column is-4 is-paddingless">
+              <div class="search-block">
+                <label class="search-label label">
+                  <span>keyword</span>
+                </label>
+                <input class="search-input home-input"  name="keyword" placeholder="type a word" value="<%= @keyword %>">
+              </div>
+            </div>
+
+            <div class="column is-paddingless">
+              <div class="price-block">
+                <label class="price-label label">
+                  <span>tag</span>
+                </label>
+                <div class="field is-large">
+                  <div class="dropdown-input dropdown-container">
+                    <div class="select is-white select-search-bar">
+                      <%= select_tag :category, options_for_select([['all', ''], ['experience', 'experience'], ['memory', 'memory'],
+                      ['glimpse', 'glimpse'], ['narrative', 'narrative'], ['philosophy', 'philosophy'],
+                      ['word-painting', 'word-painting']], @category) %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column is-2 is-paddingless">
+              <%= form.submit "filter", class: "button  is-link is-light search-button" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-hidden-desktop">
+  <div class="hero-body">
+    <div class="field has-addons">
+      <p class="control">
+        <span class="select" style="width: 50%;">
+          <%= select_tag :category, options_for_select([['all', ''], ['fiction', 'fiction'], ['experience', 'experience'], ['memory', 'memory'],
+          ['glimpse', 'glimpse'], ['narrative', 'narrative'], ['philosophy', 'philosophy'],
+          ['word-painting', 'word-painting']], @category) %>
+        </span>
+      </p>
+      <p class="control is-expanded">
+        <input class="input" name="keyword" placeholder="type a word" value="<%= @keyword %>">
+      </p>
+      <p class="control">
+        <a class="button is-info is-outlined">
+          Search
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<br><br>
+
+<div id="posts-table" class="container">
+  <table class="table">
+    <tbody>
+      <% @posts&.each do |post| %>
+      <tr>
+        <%= render 'post', post: post %>
+      </tr>
+      <br>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 <style media="screen">
   $primary-color: #009688;
 
@@ -207,7 +293,7 @@
     border: none;
   }
 
-  select {
+  select-search-bar {
     color: #A9A9A9 !important;
     border: 0px white solid;
     outline: 0px white solid;
@@ -238,67 +324,3 @@
     border-bottom-right-radius: 5px;
   }
 </style>
-
-<section class="hero is-small is-white">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title titled has-text-centered" data-aos="fade-down">writing</h1>
-    </div>
-  </div>
-</section>
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <%= form_with url: search_path, local: true do |form| %>
-        <div class="container landing-container">
-          <div class="columns search-box">
-            <div class="column is-4 is-paddingless">
-              <div class="search-block">
-                <label class="search-label label">
-                  <span>keyword</span>
-                </label>
-                <input class="search-input home-input"  name="keyword" placeholder="type a word" value="<%= @keyword %>">
-              </div>
-            </div>
-
-            <div class="column is-paddingless">
-              <div class="price-block">
-                <label class="price-label label">
-                  <span>tag</span>
-                </label>
-                <div class="field is-large">
-                  <div class="dropdown-input dropdown-container">
-                    <div class="select is-white">
-                      <%= select_tag :category, options_for_select([['all', ''], ['experience', 'experience'], ['memory', 'memory'],
-                      ['glimpse', 'glimpse'], ['narrative', 'narrative'], ['philosophy', 'philosophy'],
-                      ['word-painting', 'word-painting']], @category) %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="column is-2 is-paddingless">
-              <%= form.submit "filter", class: "button  is-link is-light search-button" %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</section>
-
-<br><br>
-
-<div id="posts-table" class="container">
-  <table class="table">
-    <tbody>
-      <% @posts&.each do |post| %>
-      <tr>
-        <%= render 'post', post: post %>
-      </tr>
-      <br>
-      <% end %>
-    </tbody>
-  </table>
-</div>
