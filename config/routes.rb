@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   post '/search', to: 'posts#search'
 
-  root 'posts#home'
+  root 'posts#index'
 end
