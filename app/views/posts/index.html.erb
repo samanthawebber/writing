@@ -49,23 +49,23 @@
 
 <section class="hero is-small is-hidden-desktop">
   <div class="hero-body">
-    <div class="field has-addons">
-      <p class="control">
-        <span class="select" style="width: 50%;">
-          <%= select_tag :category, options_for_select([['all', ''], ['fiction', 'fiction'], ['experience', 'experience'], ['memory', 'memory'],
-          ['glimpse', 'glimpse'], ['narrative', 'narrative'], ['philosophy', 'philosophy'],
-          ['word-painting', 'word-painting']], @category) %>
-        </span>
-      </p>
-      <p class="control is-expanded">
-        <input class="input" name="keyword" placeholder="type a word" value="<%= @keyword %>">
-      </p>
-      <p class="control">
-        <a class="button is-info is-outlined">
-          Search
-        </a>
-      </p>
-    </div>
+    <%= form_with url: search_path, local: true do |form| %>
+      <div class="field has-addons">
+        <p class="control">
+          <span class="select" style="width: 50%;">
+            <%= select_tag :category, options_for_select([['all', ''], ['fiction', 'fiction'], ['experience', 'experience'], ['memory', 'memory'],
+            ['glimpse', 'glimpse'], ['narrative', 'narrative'], ['philosophy', 'philosophy'],
+            ['word-painting', 'word-painting']], @category) %>
+          </span>
+        </p>
+        <p class="control is-expanded">
+          <input class="input" name="keyword" placeholder="type a word" value="<%= @keyword %>">
+        </p>
+        <p class="control">
+          <%= form.submit "filter", class: "button  is-info is-outlined search-button" %>
+        </p>
+      </div>
+    <% end %>
   </div>
 </section>
 
