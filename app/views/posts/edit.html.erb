@@ -39,6 +39,9 @@
           <div class="field">
             <%= link_to "Cancel", post_url(@post), class: "button is-link is-light" %>
           </div>
+          <div class="field">
+            <%= button_to "Delete", @post, method: :delete, class: "button is-danger is-light" %>
+          </div>
         </div>
       <% end %>
     </div>
