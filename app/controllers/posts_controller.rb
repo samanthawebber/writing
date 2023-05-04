@@ -52,7 +52,6 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    binding.irb
     redirect_to posts_path
   end
 
