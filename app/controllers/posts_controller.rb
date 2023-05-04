@@ -38,6 +38,17 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(params.require(:post).permit(:title, :subtitle, :category, :content))
+      flash[:success] = "#{@post.title} successfully updated."
+      redirect_to post_url(@post)
+    else
+      flash.now[:error] = "#{@post.title} update failed."
+      render :edit
+    end
+  end
+
   private
 
   def post_params

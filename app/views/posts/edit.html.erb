@@ -1,0 +1,46 @@
+<section class="hero is-white has-text-centered">
+  <div class="hero-body">
+    <div class="container">
+      <%= form_with(model: @post, local: true, method: :patch) do |form| %>
+      <h1 class="title titled">Edit post</h1>
+        <div class="field">
+          <%= form.label :title, class: "label has-text-black has-text-left" %>
+          <div class="control">
+            <%= form.text_field :title, class: "input" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :subtitle, class: "label has-text-black has-text-left" %>
+          <div class="control">
+            <%= form.text_field :subtitle, class: "input" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= form.label :category, class: "label has-text-black has-text-left" %>
+          <div class="control">
+            <%= form.select :category, options_for_select(%w(experience memory glimpse narrative philosophy word-painting fiction), selected: @post.category), {}, class: "select" %>
+          </div>
+        </div>
+
+        <h1 class="title titled">Content</h1>
+        <div class="field">
+          <%= form.label :content, class: "label has-text-black has-text-left" %>
+          <div class="control">
+            <%= form.text_area :content, class: "textarea", value: @post.content %>
+          </div>
+        </div>
+
+        <div class="field is-grouped">
+          <div class="control">
+            <%= form.submit "Update Post", class: "button is-link" %>
+          </div>
+          <div class="field">
+            <%= link_to "Cancel", post_url(@post), class: "button is-link is-light" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
